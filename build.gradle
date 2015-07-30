@@ -15,31 +15,42 @@ buildscript {
     }
 }
 
+apply plugin: 'java'
 apply plugin: 'forge'
 
-version = "1.7.10-0.0.0"
+ext.configFile = file "build.properties"
+
+configFile.withReader {
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
+}
+
+version = config.mod_version
 group= "tv.savageboy74.lotsofood"
 archivesBaseName = "Lots O' Food"
 
 minecraft {
-    version = "1.7.10-10.13.4.1492-1.7.10"
+    version = config.minecraft_version + "-" + config.forge_version
     runDir = "eclipse"
+	
+	replaceIn "common/util/Reference.java"
+    replace "@MOD_VERSION@", "${config.mod_version}.${config.update_number}"
 }
 
 dependencies {}
 
+version = "${config.minecraft_version}-${config.mod_version}.${config.update_number}"
+
 processResources
 {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
     from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
+        include '*.info'
                 
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'mod_version': project.version, 'minecraft_version': project.config.minecraft_version
     }
         
     from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+        exclude '**/*.info'
     }
 }

@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "modid": "lotsofood",
+  "name": "Lots O' Food",
+  "description": "Another take on a food mod for Minecraft.",
+  "version": "${mod_version}",
+  "mcversion": "${minecraft_version}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["savageboy74"],
+  "credits": "All other great modders before me who let me learn from their work",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
