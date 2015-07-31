@@ -1,7 +1,7 @@
-package tv.savageboy74.lotsofood.common.block;
+package tv.savageboy74.lotsofood.client.init;
 
 /*
- * LFBlock.java
+ * LFCreativeTab.java
  * Copyright (C) 2015 Savage - github.com/savageboy74
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,15 +23,26 @@ package tv.savageboy74.lotsofood.common.block;
  * THE SOFTWARE.
  */
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 
-public class LFBlock extends Block
+public class LFCreativeTab
 {
-
-	public LFBlock() 
-	{
-		super(Material.rock);
-	}
-
+    public static CreativeTabs LFTab;
+    
+    public static void init()
+    {
+        LFTab = new CreativeTabs("tabLOF") {
+            
+            @Override
+            @SideOnly(Side.CLIENT)
+            public Item getTabIconItem()
+            {
+                return Items.beef;
+            }  
+        };
+    }
 }
