@@ -1,5 +1,7 @@
 package tv.savageboy74.lotsofood.common;
 
+import tv.savageboy74.lotsofood.client.init.LFCreativeTab;
+import tv.savageboy74.lotsofood.common.init.LFItems;
 import tv.savageboy74.lotsofood.common.util.Logger;
 import tv.savageboy74.lotsofood.common.util.Reference;
 import cpw.mods.fml.common.Mod;
@@ -18,6 +20,8 @@ public static LotsOFood instance;
     @EventHandler
     public void preInit(FMLPreInitializationEvent  event)
     {
+        LFCreativeTab.init();
+        LFItems.init();
         Logger.info(Reference.pre_init_complete_message);
     }
 

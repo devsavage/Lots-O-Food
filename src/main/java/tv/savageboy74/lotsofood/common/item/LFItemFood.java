@@ -54,7 +54,6 @@ public class LFItemFood extends LFItem
         this.isWolfsFavoriteMeat = isWolfsFavoriteMeat;
         this.isSpecial = isSpecial;
         this.saturationModifier = saturationModifier;
-        this.setCreativeTab(CreativeTabs.tabFood);
     }
 
     public LFItemFood(int healAmount, boolean isWolfsFavoriteMeat, boolean isSpecial)

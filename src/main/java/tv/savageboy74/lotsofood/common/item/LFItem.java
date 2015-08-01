@@ -23,6 +23,8 @@ package tv.savageboy74.lotsofood.common.item;
  * THE SOFTWARE.
  */
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
 import tv.savageboy74.lotsofood.client.init.LFCreativeTab;
@@ -51,6 +53,7 @@ public class LFItem extends Item
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister)
     {
         itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
